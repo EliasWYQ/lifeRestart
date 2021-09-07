@@ -101,12 +101,12 @@ class App{
                             if(li.hasClass('selected')) {
                                 li.removeClass('selected')
                                 this.#talentSelected.delete(talent);
-                                if(this.#talentSelected.size<3) {
-                                    talentPage.find('#next').text('请选择3个')
+                                if(this.#talentSelected.size<10) {
+                                    talentPage.find('#next').text('请选择10个')
                                 }
                             } else {
-                                if(this.#talentSelected.size==3) {
-                                    this.hint('只能选3个天赋');
+                                if(this.#talentSelected.size==10) {
+                                    this.hint('只能选10个天赋');
                                     return;
                                 }
 
@@ -136,7 +136,7 @@ class App{
         talentPage
             .find('#next')
             .click(()=>{
-                if(this.#talentSelected.size!=3) {
+                if(this.#talentSelected.size!=10) {
                     this.hint('请选择3个天赋');
                     return;
                 }
@@ -221,10 +221,10 @@ class App{
             return {group, get, set};
         }
 
-        groups.CHR = getBtnGroups("颜值", 0, 10); // 颜值 charm CHR
-        groups.INT = getBtnGroups("智力", 0, 10); // 智力 intelligence INT
-        groups.STR = getBtnGroups("体质", 0, 10); // 体质 strength STR
-        groups.MNY = getBtnGroups("家境", 0, 10); // 家境 money MNY
+        groups.CHR = getBtnGroups("颜值", 1000, 1010); // 颜值 charm CHR
+        groups.INT = getBtnGroups("智力", 1000, 1010); // 智力 intelligence INT
+        groups.STR = getBtnGroups("体质", 1000, 1010); // 体质 strength STR
+        groups.MNY = getBtnGroups("家境", 1000, 1010); // 家境 money MNY
 
         const ul = propertyPage.find('#propertyAllocation');
 
